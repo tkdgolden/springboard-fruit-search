@@ -1,24 +1,24 @@
 * {
   box-sizing: border-box;
-  color: black;
 }
 
+/* input gains a border when selected */
 :focus {
   outline-color: darkorange;
 }
 
 body {
-  background-image: repeating-linear-gradient(to right, yellow 50%, rgb(255, 111, 0), yellow);
+  background-image: repeating-linear-gradient(to right, yellow 50%, rgb(255, 111, 0), yellow); /* 50% of the page aka repeats twice */
 }
 
 input {
-  background-color: transparent;
-  border-style: hidden hidden inset hidden;
+  border-style: hidden hidden inset hidden; /* bottom border only */
   border-color: darkorange;
   border-radius: 3px;
   padding: 10px;
 }
 
+/* centers everything, sets the div to the width of the input */
 .search-container {
   text-align: center;
   margin-top: 15%;
@@ -27,38 +27,24 @@ input {
   margin-right: auto;
 }
 
+/* makes the input and suggestions background semi-transparent */
 .search-container input,
 .search-container .suggestions {
   background-color: rgba(255, 255, 255, 0.2);
-  z-index: 4;
-}
-
-.search-container input {
-}
-
-.search-container .suggestions {
-  /* TODO */
 }
 
 ul {
-  list-style-type: none;
-  width: 100%;
-  margin: auto;
-  padding: 0%;
+  list-style-type: none; /* removes bullets */
+  width: 100%; /* ... of container ... which is sized off of input */
+  margin: auto; /* brings ul up to input */
+  padding: 0%; /* prevents default padding to left because its a list */
 }
 
-ul.has-suggestions {
-  /* TODO */
+li {
+  padding: 5px;
 }
 
-ul li {
-  /* TODO */
-}
-
+/* changing the background on hover gives a clue to the user that something will happen when clicked... */
 ul li:hover {
   background-color: orangered;
-}
-
-input {
-  /* TODO */
 }
