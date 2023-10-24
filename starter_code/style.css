@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  color: black;
+}
+
+:focus {
+  outline-color: darkorange;
+}
+
+body {
+  background-image: repeating-linear-gradient(to right, yellow 50%, rgb(255, 111, 0), yellow);
+}
+
+input {
+  background-color: transparent;
+  border-style: hidden hidden inset hidden;
+  border-color: darkorange;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.search-container {
+  text-align: center;
+  margin-top: 15%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-container input,
+.search-container .suggestions {
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 4;
+}
+
+.search-container input {
+}
+
+.search-container .suggestions {
+  /* TODO */
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  margin: auto;
+  padding: 0%;
+}
+
+ul.has-suggestions {
+  /* TODO */
+}
+
+ul li {
+  /* TODO */
+}
+
+ul li:hover {
+  background-color: orangered;
+}
+
+input {
+  /* TODO */
+}
