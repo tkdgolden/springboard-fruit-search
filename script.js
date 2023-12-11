@@ -1,6 +1,6 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
-const dropdown = document.querySelector("#dropdown")
+const dropdown = document.querySelector('#dropdown')
 
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
@@ -12,7 +12,7 @@ function fruitSearch(str) {
 	str = str.toLowerCase()
 
 	// don't compare an empty string
-	if (str != "") {
+	if (str != '') {
 
 		// filter fruit array and put valid matches into results array
 		results = fruit.filter((fruit) => {
@@ -44,7 +44,7 @@ function searchHandler(e) {
 function showSuggestions(results, inputVal) {
 
 	// refresh the dropdown or else itll just add on rather than update
-	dropdown.innerText = ""
+	dropdown.innerText = ''
 
 	//everything lowercase to compare
 	inputVal.toLowerCase()
@@ -64,15 +64,15 @@ function showSuggestions(results, inputVal) {
 			let newString = array[0]
 			let i = 1
 			while (i < array.length) {
-				newString += ("<b>" + inputVal + "</b>")
+				newString += ('<b>' + inputVal + '</b>')
 				newString += (array[i])
 				i++
 			}
 
 			// then I had to go back in and capitalize the first letter... gotta be a better way...?
 			let firstLetter
-			if (newString[0] == "<") {
-				console.log("<")
+			if (newString[0] == '<') {
+				console.log('<')
 				firstLetter = newString.slice(0,3)
 				firstLetter += newString[3].toUpperCase()
 				firstLetter += newString.slice(4)
@@ -82,7 +82,7 @@ function showSuggestions(results, inputVal) {
 			}
 
 			// create an element and put the result in it and put it on the page
-			let newLi = document.createElement("li")
+			let newLi = document.createElement('li')
 			newLi.innerHTML = firstLetter
 			dropdown.append(newLi)
 		}
@@ -92,7 +92,7 @@ function showSuggestions(results, inputVal) {
 // put the selected result in the input, clear the dropdown list
 function useSuggestion(e) {
 	input.value = e.srcElement.innerText
-	dropdown.innerText = ""
+	dropdown.innerText = ''
 }
 
 input.addEventListener('keyup', searchHandler);
