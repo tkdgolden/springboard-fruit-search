@@ -36,21 +36,21 @@ function showSuggestions(results, inputVal) {
   // only going to show the top 5
   let counter = 0;
 
-  // unfortunately going to iterate through all results even after the counter is past 5... 
+  // unfortunately going to iterate through all results even after the counter is past 5...
   // maybe should use a break?
   for (each of results) {
     if (counter < 5) {
-      counter ++;
-      let lowercase = each.toLowerCase();
+      counter++;
+      const lowercase = each.toLowerCase();
 
       // make the result into an array to select out the matching part, surround it in bold tags and
-	  // combine it all together again
+      // combine it all together again
       // I feel like maybe I did this a difficult way and there would be a better way to do it?
-      let array = lowercase.split(inputVal);
+      const array = lowercase.split(inputVal);
       let newString = array[0];
       let i = 1;
       while (i < array.length) {
-        newString += ('<b>' + inputVal + '</b>');
+        newString += (`<b>${inputVal}</b>`);
         newString += (array[i]);
         i++;
       }
@@ -59,7 +59,7 @@ function showSuggestions(results, inputVal) {
       let firstLetter;
       if (newString[0] === '<') {
         console.log('<');
-        firstLetter = newString.slice(0,3);
+        firstLetter = newString.slice(0, 3);
         firstLetter += newString[3].toUpperCase();
         firstLetter += newString.slice(4);
       } else {
@@ -68,7 +68,7 @@ function showSuggestions(results, inputVal) {
       }
 
       // create an element and put the result in it and put it on the page
-      let newLi = document.createElement('li');
+      const newLi = document.createElement('li');
       newLi.innerHTML = firstLetter;
       dropdown.append(newLi);
     }
@@ -77,11 +77,12 @@ function showSuggestions(results, inputVal) {
 
 // called on keyup in input
 function searchHandler(e) {
-  // all of the keys we want to check(upper and lowercase letters, delete, and backspace buttons) 
+  // all of the keys we want to check(upper and lowercase letters, delete, and backspace buttons)
   // (mainly wanted to ignore the shift key so it wouldn't run twice on a capital letter)
-  let validKey = ((e.keyCode > 64) && (e.keyCode < 123)) || (e.keyCode === 46) || (e.keyCode === 8);
+  const validKey = ((e.keyCode > 64) && (e.keyCode < 123))
+    || (e.keyCode === 46) || (e.keyCode === 8);
   if (validKey) {
-    let results = fruitSearch(input.value);
+    const results = fruitSearch(input.value);
     showSuggestions(results, input.value);
   }
 }
