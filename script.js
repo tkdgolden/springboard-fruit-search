@@ -12,14 +12,14 @@ function fruitSearch(str) {
   str = str.toLowerCase();
 
   // don't compare an empty string
-  if (str != '') {
+  if (str !== '') {
 
     // filter fruit array and put valid matches into results array
     results = fruit.filter((fruit) => {
       fruit = fruit.toLowerCase();
 
       // will return index if found, -1 if not
-      if (fruit.search(str) != -1) {
+      if (fruit.search(str) !== -1) {
         return fruit;
       }
     });
@@ -71,7 +71,7 @@ function showSuggestions(results, inputVal) {
 
       // then I had to go back in and capitalize the first letter... gotta be a better way...?
       let firstLetter;
-      if (newString[0] == '<') {
+      if (newString[0] === '<') {
         console.log('<');
         firstLetter = newString.slice(0,3);
         firstLetter += newString[3].toUpperCase();
