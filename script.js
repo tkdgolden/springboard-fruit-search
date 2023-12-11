@@ -25,17 +25,6 @@ function fruitSearch(inputString) {
   return results;
 }
 
-// called on keyup in input
-function searchHandler(e) {
-  // all of the keys we want to check(upper and lowercase letters, delete, and backspace buttons) 
-  // (mainly wanted to ignore the shift key so it wouldn't run twice on a capital letter)
-  let validKey = ((e.keyCode > 64) && (e.keyCode < 123)) || (e.keyCode === 46) || (e.keyCode === 8);
-  if (validKey) {
-    let results = fruitSearch(input.value);
-    showSuggestions(results, input.value);
-  }
-}
-
 // display matching fruit
 function showSuggestions(results, inputVal) {
   // refresh the dropdown or else itll just add on rather than update
@@ -83,6 +72,17 @@ function showSuggestions(results, inputVal) {
       newLi.innerHTML = firstLetter;
       dropdown.append(newLi);
     }
+  }
+}
+
+// called on keyup in input
+function searchHandler(e) {
+  // all of the keys we want to check(upper and lowercase letters, delete, and backspace buttons) 
+  // (mainly wanted to ignore the shift key so it wouldn't run twice on a capital letter)
+  let validKey = ((e.keyCode > 64) && (e.keyCode < 123)) || (e.keyCode === 46) || (e.keyCode === 8);
+  if (validKey) {
+    let results = fruitSearch(input.value);
+    showSuggestions(results, input.value);
   }
 }
 
