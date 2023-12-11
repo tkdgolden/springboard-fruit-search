@@ -18,9 +18,7 @@ function fruitSearch(inputString) {
       const lowerCaseFruit = entry.toLowerCase();
 
       // will return index if found, -1 if not
-      if (lowerCaseFruit.search(str) !== -1) {
-        return lowerCaseFruit;
-      }
+      return lowerCaseFruit.search(str) !== -1;
     });
   }
 
