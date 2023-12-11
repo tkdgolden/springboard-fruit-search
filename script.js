@@ -5,21 +5,21 @@ const dropdown = document.querySelector('#dropdown');
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
 // find matching fruit list
-function fruitSearch(str) {
+function fruitSearch(inputString) {
   let results = [];
 
   // set everything to lowercase before comparing
-  str = str.toLowerCase();
+  const str = inputString.toLowerCase();
 
   // don't compare an empty string
   if (str !== '') {
     // filter fruit array and put valid matches into results array
-    results = fruit.filter((fruit) => {
-      fruit = fruit.toLowerCase();
+    results = fruit.filter((entry) => {
+      const lowerCaseFruit = entry.toLowerCase();
 
       // will return index if found, -1 if not
-      if (fruit.search(str) !== -1) {
-        return fruit;
+      if (lowerCaseFruit.search(str) !== -1) {
+        return lowerCaseFruit;
       }
     });
   }
